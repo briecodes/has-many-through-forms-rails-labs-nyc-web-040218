@@ -27,7 +27,11 @@
     <%= f.collection_select :user_id, @users, :id, :username, {include_blank: "Select User"} %>
     <br><br>
 
-    <%= f.fields_for :user, @users.build do |user_fields| %>
+    <%# f.fields_for :categories, post.categories.build do |categories_fields|
+        categories_fields.text_field :name
+    end %>
+
+    <%= f.fields_for :user, @comment.user.build do |user_fields| %>    
         <%= user_fields.label :comment_user_attributes_username, "Username:" %>
         <%= user_fields.text_field :username, :id => :comment_user_attributes_username %>
     <% end %>
