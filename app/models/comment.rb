@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 
   # :post_categories accepts_nested_attributes_for :users
 
-  def users_attributes=(user_attributes)
+  def user_attributes=(user_attributes)
     user_attributes.values.each do |user_attribute|
       user = User.find_or_create_by(user_attribute)
       self.comment.user.build(username: username)
