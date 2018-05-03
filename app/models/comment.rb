@@ -7,7 +7,7 @@ class Comment < ActiveRecord::Base
   def users_attributes=(user_attributes)
     user_attributes.values.each do |user_attribute|
       user = User.find_or_create_by(user_attribute)
-      self.user.build(username: username)
+      self.comment.user.build(username: username)
     end
   end
 
