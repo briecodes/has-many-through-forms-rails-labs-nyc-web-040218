@@ -1,15 +1,19 @@
 class CommentsController < ApplicationController
 
   def create
+    byebug
     comment = Comment.create(comment_params)
-    # binding.pry
-    redirect_to comment.post
+    if comment.valid?
+      redirect_to comment.post
+    else
+      redirect_to comment.post
+    end
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :post_id, :user_id, user_attributes:[:username])
+    params.require(:comment).permit(:content, :post_id, :user_id, :new_user_id, user_attributes:[:username])
   end
 
   # def post_params

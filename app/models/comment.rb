@@ -2,6 +2,10 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
+  validates :content, presence: true
+  # validates_with MyValidator
+  
+
   # :post_categories accepts_nested_attributes_for :users
 
   def user_attributes=(user_attributes)
