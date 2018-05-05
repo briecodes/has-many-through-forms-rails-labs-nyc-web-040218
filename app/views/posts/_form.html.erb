@@ -1,1 +1,9 @@
+<%= form_for @post do |t| %>
+    <%= t.label :title %>: 
+    <%= t.text_field :title, :id => "post_title" %><br>
 
+    <%= t.label :content %>: 
+    <%= t.text_field :content, :id => "post_content" %><br><br>
+
+    <%= t.submit %>
+<% end %>
