@@ -1,8 +1,8 @@
 class MyValidator < ActiveModel::Validator
     def validate(record)
-        if !record[:user_id] && !record[:new_user_id]
+        if !record[:user_id] && !record[:new_username]
             record.errors.add :base, 'This record is invalid'
-        elsif record[:user_id] && record[:new_user_id]
+        elsif record[:user_id] && record[:new_username]
             record.errors.add :base, 'This record is invalid'
         end
     end
