@@ -17,7 +17,11 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(post_params)
-    redirect_to post
+    if post.validate?
+      redirect_to post
+    else
+      redirect_to new_post_path
+    end
   end
 
   private
