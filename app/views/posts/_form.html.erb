@@ -5,5 +5,9 @@
     <%= t.label :content %>: 
     <%= t.text_field :content, :id => "post_content" %><br><br>
 
+    <%= t.collection_check_boxes :category_ids, @categories, :id, :name %>
+
+    <%= t.label :%>
+
     <%= t.submit %>
 <% end %>
