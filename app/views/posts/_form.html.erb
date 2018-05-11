@@ -5,14 +5,11 @@
     <%= t.label :content %>: 
     <%= t.text_field :content, :id => "post_content" %><br><br>
     
-     <%= e.collection_select :category_id, @categories, :id, :name %><br><br>
+     <%= t.collection_check_boxes :category_ids, @categories, :id, :name %><br><br>
+    
+    <%= t.fields_for :cateogries_attributes_0 do |cat| %>
+        <%= cat.label :name %>: <%= cat.text_field :name, name: "post_categories_attributes_0_name" %><br><br>
+    <% end %>
 
-    <%= f.label :new_category, "New Category:" %>
-    <%= f.text_field :cateogry_id, :name => "new_cateogry", :id => :new_cateogry %>   
-
-    <%= t.collection_check_boxes :category_ids, @categories, :id, :name %>
-
-    <%= t.label :%>
-
-    <%= t.submit %>
+    <%= t.submit "Create Post" %>
 <% end %>

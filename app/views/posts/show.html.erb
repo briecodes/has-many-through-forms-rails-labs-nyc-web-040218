@@ -3,8 +3,10 @@
     <%= @post.content %>
 </p>
 <small>
-    <% @post.categories.each do |cat| %>
-        | <%= cat.name %>
+    <% if @post.categories %>
+        <% @post.categories.each do |cat| %>
+            | <%= cat.name %>
+        <% end %>
     <% end %>
 </small>
 
